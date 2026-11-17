@@ -16,6 +16,8 @@ class Manager
         bool addbook(std::string book_name,std::string author_name);
         void borrowbook(std::string book_name,std::string,std::string today_date);
         bool availablebook(std::string book_name,std::string author_name);
+        void wantborrow(int id,std::string &first_name,std::string &last_name,std::string &book_name,std::string &author_name);
+
 
 
 };
