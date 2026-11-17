@@ -2,6 +2,10 @@
 #include <string>
 #include "validation.hpp"
 #include <iostream>
+#include <vector>
+#include "book.hpp"
+#include <chrono>
+#include <format>
 
 bool Manager::addstudent(std::string first_name,std::string last_name,int id){
     if(!Validation::validatefirst_name(first_name)){
@@ -47,10 +51,38 @@ bool Manager::addbook(std::string book_name,std::string author_name){
     m_books.emplace_back(book_name,author_name);
 
 }
-void Manager::borrowbook(std::string book_name,std::string,std::string today_date){
+void Manager::borrowbook(std::string book_name,std::string author_name){
+    for(const Book&book:m_books){
+        if(book.getbook_name()==book_name&&book.getauthor_name()==author_name){
+            std::cout << "Book available\n";
+            std::cout << "Book Borrowes\n";
+        }
+    }
     
+
+    m_boorowed_books.insert({book_name,author_name});
 }
 
+void Manager::wantborrow(int id,std::string &first_name,std::string &last_name,std::string &book_name,std::string &author_name){
+    if(!Validation::validatefirst_name(first_name)||!Validation::validatelast_name(last_name)||!Validation::validateid(id)||!Validation::validatebook_name(book_name)||!Validation::validateauthor_name(author_name)){
+        std::cout <<"Invalide Details'\n";
+        return;
+    }
+    for(const Book&book:m_books){
+        if(book.getbook_name()==book_name && book.getauthor_name()==author_name){
+            std::cout << "Book Available";
+            return ;
+        }else
+        {
+            std::cerr<<"Book is not available\n for borrow";
+        }
+    }
+    
+    
+
+
+
+}
 
 
 
