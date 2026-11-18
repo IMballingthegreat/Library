@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Librarymanagement.dir/main.cpp.o CMakeFiles/Librarymanagement.dir/manager.cpp.o CMakeFiles/Librarymanagement.dir/student.cpp.o CMakeFiles/Librarymanagement.dir/validation.cpp.o -o Librarymanagement

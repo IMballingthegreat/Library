@@ -36,7 +36,7 @@ bool Validation::validateauthor_name(std::string &author_name){
 }
 bool Validation::validateid(int id){
    
-        if(id>100000||id<999999){
+        if(id<100000||id>999999){
             return false;
         }
     
